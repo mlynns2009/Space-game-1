@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="New Game Project"
+run/main_scene="uid://y3t8ddjd2k4p"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="New Game Project"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.0253638, 0.0253638, 0.0253638, 1)
