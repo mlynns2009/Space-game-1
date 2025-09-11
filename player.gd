@@ -10,3 +10,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("player_right"):
 		position.x +=10
+	if Input.is_action_pressed("player_left"):
+		position.x -=10
+		
