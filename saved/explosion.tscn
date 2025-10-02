@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://d11asv41asuye"]
+
+[ext_resource type="Texture2D" uid="uid://ceoujbeqy5o3a" path="res://Shooter.gameproj/images/EnemyProjectile1.png" id="1_hfra7"]
+[ext_resource type="Script" uid="uid://ui1qsuf1kogb" path="res://scripts/explosion.gd" id="1_i5tcy"]
+[ext_resource type="AudioStream" uid="uid://cq4xi6jtofbpi" path="res://Shooter.gameproj/sounds/Pew__008.ogg" id="3_cfjke"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfra7"]
+particle_flag_disable_z = true
+angular_velocity_min = -720.0
+angular_velocity_max = 206.73
+orbit_velocity_min = -2.0
+orbit_velocity_max = 1.822
+radial_velocity_min = -811.32
+radial_velocity_max = 114.97
+gravity = Vector3(0, 98, 0)
+
+[node name="explosion" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_i5tcy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 200
+texture = ExtResource("1_hfra7")
+lifetime = 1.55
+interp_to_end = 0.04
+speed_scale = 29.94
+process_material = SubResource("ParticleProcessMaterial_hfra7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cfjke")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.375
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="Timeout"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbw8x7mxw0jdp"]
+
+[ext_resource type="Script" uid="uid://cugleb7yisu8q" path="res://scripts/enemy.gd" id="1_pxmkm"]
+[ext_resource type="Texture2D" uid="uid://dxx108rjsa8vk" path="res://Scene/insect-1.png" id="2_pxmkm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn43x"]
+size = Vector2(112.085, 97.7421)
+
+[node name="enemy" type="Area2D" groups=["enemies"]]
+script = ExtResource("1_pxmkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.552083, 0.545977)
+shape = SubResource("RectangleShape2D_kn43x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.499999, 0.875)
+scale = Vector2(0.536364, 0.518041)
+texture = ExtResource("2_pxmkm")
+
+[node name="rock_spawn" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="rock_spawn" to="." method="_on_rock_spawn_timeout"]

@@ -1,14 +1,3 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-*.tscn
-*.gd
-*.uid
-*.tscn
-*.tscn
-*.tscn
-*.gd
-*.uid
-*.uid
-node_2d.tscn
-*.tscn
